@@ -1,9 +1,9 @@
 import { addNewShighting } from "../utils/addNewShightings.js";
 import { getData } from "../utils/getData.js";
-import { parseJSONBody } from "../utils/parseJSONbody.js";
 import { sanitizeInput } from "../utils/sanitizeInput.js";
 import { sendResponse } from "../utils/sendResponse.js";
 import { stories } from "../data/stories.js";
+import { parseJsonBody } from "../utils/parseJsonBody.js";
 
 // 🧩 Handle GET requests
 export async function handleGet(res) {
@@ -15,7 +15,7 @@ export async function handleGet(res) {
 // 🧩 Handle POST requests (single or multiple encounters)
     export async function handlePost(req, res) {
   try {
-    const parsedBody = await parseJSONBody(req);
+    const parsedBody = await parseJsonBody(req);
     console.log("📦 RAW REQUEST BODY:");
     console.dir(parsedBody, { depth: null });
 
