@@ -9,7 +9,7 @@ dotenv.config();
 // ✅ Connect to MongoDB once when server starts
 await connectDB();
 
-const PORT = 8000;
+const PORT = process.env.PORT || 8000;
 const __dirname = import.meta.dirname;
 
 const server = http.createServer(async (req, res) => {
