@@ -1,5 +1,5 @@
 // utils/parseJSONbody.js
-export async function parseJsonBody(req) {
+export async function parseJSONBody(req) {
   let body = "";
 
   try {
