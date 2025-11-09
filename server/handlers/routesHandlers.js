@@ -3,7 +3,7 @@ import { getData } from "../utils/getData.js";
 import { sanitizeInput } from "../utils/sanitizeInput.js";
 import { sendResponse } from "../utils/sendResponse.js";
 import { stories } from "../data/stories.js";
-import { parseJSONBody } from "../utils/parseJSONbody.js";
+import { parseJSONbody } from "../utils/parseJSONbody.js";
 
 // 🧩 Handle GET requests
 export async function handleGet(res) {
@@ -15,7 +15,7 @@ export async function handleGet(res) {
 // 🧩 Handle POST requests (single or multiple encounters)
     export async function handlePost(req, res) {
   try {
-    const parsedBody = await parseJSONBody(req);
+    const parsedBody = await parseJSONbody(req);
     console.log("📦 RAW REQUEST BODY:");
     console.dir(parsedBody, { depth: null });
 
