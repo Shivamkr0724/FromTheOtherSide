@@ -3,7 +3,7 @@ import { getData } from "../utils/getData.js";
 import { sanitizeInput } from "../utils/sanitizeInput.js";
 import { sendResponse } from "../utils/sendResponse.js";
 import { stories } from "../data/stories.js";
-import { parseJSONbody } from "../utils/parseJSONbody.js";
+import { parseJSONbody } from "../utils/parseJSONBody.js";
 
 // 🧩 Handle GET requests
 export async function handleGet(res) {
