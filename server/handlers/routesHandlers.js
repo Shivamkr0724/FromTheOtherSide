@@ -12,8 +12,8 @@ export async function handleGet(res) {
   sendResponse(res, 200, "application/json", content);
 }
 
-// 🧩 Handle POST requests (single or multiple encounters)
-    export async function handlePost(req, res) {
+// 🧩 Handle POST requests (single encounter only)
+export async function handlePost(req, res) {
   try {
     const parsedBody = await parseJSONbody(req);
     console.log("📦 RAW REQUEST BODY:");
@@ -23,12 +23,7 @@ export async function handleGet(res) {
     console.log("🧹 Sanitized body:");
     console.dir(sanitizedBody, { depth: null });
 
-    let saved;
-    if (Array.isArray(sanitizedBody)) {
-      saved = await addMultipleShightings(sanitizedBody);
-    } else {
-      saved = await addNewShighting(sanitizedBody);
-    }
+    const saved = await addNewShighting(sanitizedBody);
 
     sendResponse(res, 201, "application/json", JSON.stringify(saved));
   } catch (err) {
@@ -36,7 +31,6 @@ export async function handleGet(res) {
     sendResponse(res, 400, "application/json", JSON.stringify({ error: err.message }));
   }
 }
-
 
 // 🧩 Handle Server-Sent Events for live story updates
 export async function handleNews(req, res) {
