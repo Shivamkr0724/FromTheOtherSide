@@ -18,4 +18,5 @@ export async function parseJSONbody(req) {
     // Instead of throwing, reject cleanly so your handler can send a 400
     throw new Error("Invalid JSON body");
   }
+  
 }
